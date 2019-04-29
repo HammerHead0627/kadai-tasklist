@@ -48,6 +48,7 @@ public class CreateServlet extends HttpServlet {
             em.getTransaction().begin();
             em.persist(t);  //taskクラスのオブジェクトをデータベースに保存
             em.getTransaction().commit();
+
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");

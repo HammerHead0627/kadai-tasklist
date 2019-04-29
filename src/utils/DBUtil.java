@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 
 public class DBUtil {
 
-    private static final String PERSISTENCE_UNIT_NAME = "task_list";
+    private static final String PERSISTENCE_UNIT_NAME = "task";
     private static EntityManagerFactory emf;
 
     public static EntityManager createEntityManager() {

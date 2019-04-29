@@ -35,18 +35,18 @@ public class EditServlet extends HttpServlet {
             // TODO Auto-generated method stub
             EntityManager em = DBUtil.createEntityManager();
 
-            // 該当のIDのメッセージ1件のみをデータベースから取得
+            // 該当のID1件のみをデータベースから取得
             task t = em.find(task.class, Integer.parseInt(request.getParameter("id")));
 
             em.close();
 
-            // メッセージ情報とセッションIDをリクエストスコープに登録
+            // タスク内容とセッションIDをリクエストスコープに登録
             request.setAttribute("task", t);
             request.setAttribute("_token", request.getSession().getId());
 
-            //メッセージデータが存在しているときのみメッセージIDをセッションスコープに登録
+            //データが存在しているときのみIDをセッションスコープに登録
             if(t != null){
-            request.getSession().setAttribute("message_id", t.getId());
+            request.getSession().setAttribute("task_id", t.getId());
             }
 
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
